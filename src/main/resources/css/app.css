@@ -1,0 +1,183 @@
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f5f6f8;
+}
+
+.tab-pane .tab-header-area {
+    -fx-padding: 8 8 0 8;
+}
+
+.tab {
+    -fx-background-insets: 0;
+    -fx-background-radius: 6 6 0 0;
+    -fx-padding: 8 16;
+}
+
+.tab:selected {
+    -fx-background-color: white;
+    -fx-font-weight: bold;
+}
+
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 6;
+}
+
+.text-field, .combo-box, .date-picker {
+    -fx-background-radius: 4;
+}
+
+.button {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-background-radius: 4;
+    -fx-padding: 6 14;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+.danger-button {
+    -fx-background-color: #dc2626;
+}
+
+.danger-button:hover {
+    -fx-background-color: #b91c1c;
+}
+
+.area-panel {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.label {
+    -fx-text-fill: #1e293b;
+}
+
+.text-area {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-background-color: white;
+}
+
+.dashboard-card {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-max-width: 720;
+}
+
+.theme-bar {
+    -fx-background-color: #e2e8f0;
+    -fx-padding: 6 12;
+    -fx-border-color: #cbd5e1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.theme-toggle {
+    -fx-background-color: #334155;
+}
+
+.theme-toggle:selected {
+    -fx-background-color: #0f172a;
+}
+
+.chart-card {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-max-width: 720;
+}
+
+/* Dark theme */
+.root.dark-theme {
+    -fx-background-color: #0f172a;
+}
+
+.root.dark-theme .label {
+    -fx-text-fill: #e2e8f0;
+}
+
+.root.dark-theme .tab-pane .tab-header-area {
+    -fx-background-color: #1e293b;
+}
+
+.root.dark-theme .tab {
+    -fx-background-color: #334155;
+    -fx-text-fill: #cbd5e1;
+}
+
+.root.dark-theme .tab:selected {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #f8fafc;
+}
+
+.root.dark-theme .tab-pane .tab-content-area {
+    -fx-background-color: #0f172a;
+}
+
+.root.dark-theme .area-panel,
+.root.dark-theme .dashboard-card,
+.root.dark-theme .chart-card {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+}
+
+.root.dark-theme .table-view {
+    -fx-background-color: #1e293b;
+}
+
+.root.dark-theme .text-field,
+.root.dark-theme .combo-box,
+.root.dark-theme .date-picker,
+.root.dark-theme .text-area {
+    -fx-background-color: #334155;
+    -fx-text-fill: #f8fafc;
+}
+
+.root.dark-theme .theme-bar {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+}
+
+.root.dark-theme .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.root.dark-theme .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.root.dark-theme .chart {
+    -fx-background-color: transparent;
+}
+
+.root.dark-theme .chart-plot-background {
+    -fx-background-color: #1e293b;
+}
+
+.root.dark-theme .axis {
+    -fx-tick-label-fill: #cbd5e1;
+}
+
+.root.dark-theme .axis-label {
+    -fx-text-fill: #e2e8f0;
+}
+
+.root.dark-theme .chart-title {
+    -fx-text-fill: #f8fafc;
+}
+
+.root.dark-theme .chart-legend {
+    -fx-background-color: transparent;
+}
+
+.root.dark-theme .check-box {
+    -fx-text-fill: #e2e8f0;
+}

@@ -1,0 +1,62 @@
+SETUP FOR OTHER COMPUTER
+========================
+
+WHY IT FAILS ON OTHER PC
+-------------------------
+Your main PC has Java and Maven in specific folders (C:\jdk-17.0.2, C:\apache-maven-3.8.5).
+The other PC does not have these exact paths.
+
+EASIEST FIX (Recommended)
+-------------------------
+On YOUR computer (where it works):
+
+  1. Double-click: Prepare-For-Other-PC.bat
+     (wait 2-3 minutes - builds portable package)
+
+  2. Zip the whole folder:
+     work-management-billing
+
+  3. Send ZIP to other computer (USB / email / cloud)
+
+On OTHER computer:
+
+  1. Install JDK 17 or 21 only
+     Download: https://adoptium.net
+     (Choose JDK, not JRE)
+
+  2. Unzip the folder anywhere
+     Example: D:\Apps\work-management-billing
+
+  3. Double-click: Check-Requirements.bat
+     (confirms Java is installed)
+
+  4. Double-click: Run App (Portable).bat
+     (NO Maven needed!)
+
+ALTERNATIVE (Maven on other PC)
+-------------------------------
+If you prefer Maven on other PC:
+
+  1. Install JDK 17 or 21
+  2. Install Maven - add to PATH
+  3. Copy project folder
+  4. Double-click: Launch App.bat
+  5. First run needs internet
+
+MOVE YOUR DATA
+--------------
+  Old PC: Settings -> Backup Database
+  Copy the .db file to new PC
+  New PC: Settings -> Restore Database
+
+TROUBLESHOOTING
+---------------
+If app window disappears:
+  - Open launch-log.txt in the project folder
+  - Run Check-Requirements.bat
+  - Send launch-log.txt content for help
+
+Common errors:
+  "Java not found"     -> Install JDK from adoptium.net
+  "Maven not found"    -> Use Run App (Portable).bat instead
+  "JavaFX missing"     -> Run Prepare-For-Other-PC.bat on main PC again
