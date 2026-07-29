@@ -128,15 +128,21 @@ public class BillPdfGenerator {
     // Work Entries
     // ===========================
 
-    for (WorkEntry entry : bill.getWorkEntries()) {
-        addDateSection(document, entry);
+bill.getWorkEntries().stream()
+            .sorted(java.util.Comparator.comparing(WorkEntry::getWorkDate))
+            .forEach(entry -> {
+                try {
+                    addDateSection(document, entry);
 
-        document.add(new Paragraph(
-                "------------------------------------------------------------",
-                NORMAL_FONT));
+                    document.add(new Paragraph(
+                            "------------------------------------------------------------",
+                            NORMAL_FONT));
 
-        document.add(Chunk.NEWLINE);
-    }
+                    document.add(Chunk.NEWLINE);
+                } catch (DocumentException e) {
+                    throw new RuntimeException(e);
+                }
+            });
 
     // ===========================
     // Grand Total
