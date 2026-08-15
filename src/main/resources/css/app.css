@@ -181,3 +181,23 @@
 .root.dark-theme .check-box {
     -fx-text-fill: #e2e8f0;
 }
+.table-row-cell.cancelled-row {
+    -fx-background-color: #ef4444;
+    -fx-text-fill: white;
+}
+.table-row-cell.cancelled-row .text {
+    -fx-fill: white;
+}
+.table-row-cell.cancelled-row:selected {
+    -fx-background-color: #b91c1c;
+}
+.table-row-cell.completed-row {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: white;
+}
+.table-row-cell.completed-row .text {
+    -fx-fill: white;
+}
+.table-row-cell.completed-row:selected {
+    -fx-background-color: #15803d;
+}
