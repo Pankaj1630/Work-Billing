@@ -9,6 +9,7 @@ import com.workbilling.ui.util.BillActionHandler;
 import com.workbilling.ui.util.Dialogs;
 import com.workbilling.ui.util.UiFormat;
 import com.workbilling.util.AppPaths;
+import com.workbilling.model.enums.BillStatus;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
@@ -88,6 +89,21 @@ public class BillHistoryTab {
 
         table.getColumns().addAll(numberCol, companyCol, fromCol, toCol, totalCol, statusCol);
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+                table.setRowFactory(tv -> new TableRow<Bill>() {
+            @Override
+            protected void updateItem(Bill bill, boolean empty) {
+                super.updateItem(bill, empty);
+                getStyleClass().remove("cancelled-row");
+                getStyleClass().removeAll("cancelled-row", "completed-row");
+                if (!empty && bill != null) {
+                    if (bill.getStatus() == BillStatus.CANCELLED) {
+                        getStyleClass().add("cancelled-row");
+                    } else if (bill.getStatus() == BillStatus.COMPLETED) {
+                        getStyleClass().add("completed-row");
+                    }
+                }
+            }
+        });
         table.getSelectionModel().selectedItemProperty().addListener((obs, o, bill) -> {
             boolean selected = bill != null;
             deleteBillBtn.setDisable(!selected);
