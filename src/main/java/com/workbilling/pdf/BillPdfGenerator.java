@@ -13,13 +13,14 @@ import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.pdf.draw.LineSeparator;
-
+import com.lowagie.text.Image;
+import java.io.InputStream;
 import com.workbilling.model.Bill;
 import com.workbilling.model.WorkArea;
 import com.workbilling.model.WorkEntry;
 import com.workbilling.model.WorkItem;
 import com.workbilling.util.AppPaths;
-
+import com.lowagie.text.Image;
 import java.awt.Color;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -48,13 +49,20 @@ public class BillPdfGenerator {
 
     Files.createDirectories(outputPath.getParent());
 
-    Document document = new Document(PageSize.A4, 36, 36, 48, 36);
+    Document document = new Document(PageSize.A4, 36, 36, 10, 36);
        PdfWriter writer =
         PdfWriter.getInstance(document, Files.newOutputStream(outputPath));
 
          writer.setPageEvent(new PageNumberEvent());
     document.open();
-
+        // Logo
+        Image logo = Image.getInstance(
+                getClass().getResource("/img.png")
+        );
+        logo.scaleToFit(90, 60);
+        logo.setAlignment(Element.ALIGN_CENTER);
+        logo.setSpacingAfter(5);
+        document.add(logo);
     // ===========================
     // Header
     // ===========================
@@ -106,7 +114,7 @@ public class BillPdfGenerator {
     // ===========================
 
     document.add(new Paragraph(
-            "Company : " + bill.getCompanyName(),
+            "To Company : " + bill.getCompanyName(),
             HEADER_FONT));
 
     document.add(new Paragraph(
@@ -198,7 +206,7 @@ bill.getWorkEntries().stream()
         addHeaderCell(table, "Sr.");
         addHeaderCell(table, "Description");
         addHeaderCell(table, "Sq.Ft");
-        addHeaderCell(table, "Nos");
+        addHeaderCell(table, "Qty");
         addHeaderCell(table, "Rate");
         addHeaderCell(table, "Amount");
 
